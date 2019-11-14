@@ -53,7 +53,7 @@ module "<layer>-ecs-task-definition-<AccountID>" {
 The variables required in order for the module to be successfully called from the deployment repository are the following:
 
 | Variable                      | Description                                   | Type            |
-|-------------------------------|-----------------------------------------------|-----------------|
+|:---                           |      :----:                                   |            ---: |
 | common_tags                   | Resource tags                                 | map             |
 | family                        | A unique name                                 | string          |
 | container_definitions         | A list of valid container definitions         | string          |
