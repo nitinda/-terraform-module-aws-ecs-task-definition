@@ -14,15 +14,21 @@ This module needs Terraform 0.11.10 or newer.
 You can download the latest Terraform version from [here](https://www.terraform.io/downloads.html).
 
 
+This module deploys aws services details are in respective feature branches.
 
 ---
 
+## Features Branches
 
-## Features
+Below we are able to check the resources that are being created as part of this module call:
 
-This module deploys ECS task definition, so will need to have a pre-existing vpc configured.
+From branch : *terrform-11*
 
-- *ECS Task Definition*
+- *ECS Task Definition (Terraform 11 supported code)*
+
+From branch : *terrform-12* *[Work in progress]*
+
+- *ECS Task Definition (Terraform 12 supported code - Work in progres)*
 
 
 ---
@@ -50,21 +56,7 @@ module "<layer>-ecs-task-definition-<AccountID>" {
 
 The variables required in order for the module to be successfully called from the deployment repository are the following:
 
-| Variable                      | Description                                   | Type            |
-|-------------------------------|-----------------------------------------------|-----------------|
-| common_tags                   | Resource tags                                 | map             |
-| family                        | A unique name                                 | string          |
-| container_definitions         | A list of valid container definitions         | string          |
-| task_role_arn                 | The ARN of IAM role for container task        | string          |
-| execution_role_arn            | The Amazon Resource Name                      | string          |
-| network_mode                  | The Docker networking mode                    | string          |
-| volume                        | A set of volume blocks                        | list of maps    |
-| placement_constraints         | A set of placement constraints rules          | list of maps    |
-| cpu                           | The number of cpu units                       | string          |
-| memory                        | The amount (in MiB) of memory                 | string          |
-| requires_compatibilities      | A set of launch types                         | string          |
-
-
+- *Details are in respective branch.*
 
 
 ---
@@ -76,9 +68,7 @@ The variables required in order for the module to be successfully called from th
 This module has the following outputs:
 
 
-* *arn*
-* *family*
-* *revision*
+- *Details are in respective branch.*
 
 
 
