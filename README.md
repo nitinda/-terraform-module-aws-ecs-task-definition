@@ -1,4 +1,4 @@
-Terraform Module:  terraform-module-aws-ecs-task-definition
+# Terraform Module: terraform-module-aws-ecs-task-definition
 
 
 ## General
@@ -26,10 +26,6 @@ From branch : *terraform-11/master*
 
 - *ECS Task Definition (Terraform 11 supported code)*
 
-From branch : *terraform-12/master* *[Work in progress]*
-
-- *ECS Task Definition (Terraform 12 supported code - Work in progres)*
-
 
 ---
 
@@ -56,7 +52,19 @@ module "<layer>-ecs-task-definition-<AccountID>" {
 
 The variables required in order for the module to be successfully called from the deployment repository are the following:
 
-- *Details are in respective branch.*
+| Variable                      | Description                                   | Type            |
+|-------------------------------|-----------------------------------------------|-----------------|
+| common_tags                   | Resource tags                                 | map             |
+| family                        | A unique name                                 | string          |
+| container_definitions         | A list of valid container definitions         | string          |
+| task_role_arn                 | The ARN of IAM role for container task        | string          |
+| execution_role_arn            | The Amazon Resource Name                      | string          |
+| network_mode                  | The Docker networking mode                    | string          |
+| volume                        | A set of volume blocks                        | list of maps    |
+| placement_constraints         | A set of placement constraints rules          | list of maps    |
+| cpu                           | The number of cpu units                       | string          |
+| memory                        | The amount (in MiB) of memory                 | string          |
+| requires_compatibilities      | A set of launch types                         | string          |
 
 
 ---
@@ -68,8 +76,9 @@ The variables required in order for the module to be successfully called from th
 This module has the following outputs:
 
 
-- *Details are in respective branch.*
-
+* *arn*
+* *family*
+* *revision*
 
 
 ### Usage
