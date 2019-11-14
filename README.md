@@ -22,11 +22,11 @@ This module deploys aws services details are in respective feature branches.
 
 Below we are able to check the resources that are being created as part of this module call:
 
-From branch : *terrform-11*
+From branch : *terrform-11/master*
 
 - *ECS Task Definition (Terraform 11 supported code)*
 
-From branch : *terrform-12* *[Work in progress]*
+From branch : *terrform-12/master* *[Work in progress]*
 
 - *ECS Task Definition (Terraform 12 supported code - Work in progres)*
 
