@@ -1,4 +1,4 @@
-Terraform Module:  terraform-module-aws-ecs-task-definition
+# Terraform Module: terraform-module-aws-ecs-task-definition
 
 
 ## General
