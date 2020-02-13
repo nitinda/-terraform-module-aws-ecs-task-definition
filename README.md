@@ -67,8 +67,6 @@ EOF
   execution_role_arn = ""
   requires_compatibilities = ["EC2"]
 
-
-
   # Tags
   tags = {
       Project      = "POC"
