@@ -9,10 +9,12 @@ variable "container_definitions" {
 
 variable "task_role_arn" {
   description = "The ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services."
+  default     = null
 }
 
 variable "execution_role_arn" {
   description = "The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container agent and the Docker daemon can assume."
+  default     = null
 }
 
 variable "network_mode" {
@@ -21,7 +23,7 @@ variable "network_mode" {
 
 variable "placement_constraints" {
   description = "A set of placement constraints rules that are taken into consideration during task placement."
-  type        = list(string)
+  type        = any
   default     = []
 }
 
@@ -40,7 +42,7 @@ variable "requires_compatibilities" {
 
 variable "volume" {
   description = "A set of volume blocks that containers in your task may use."
-  type        = list(string)
+  type        = any
   default     = []
 }
 
