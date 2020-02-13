@@ -75,8 +75,9 @@ _The variables required in order for the module to be successfully called from t
 _This module has the following outputs:_
 
 
-- _**Details are in respective branch.**_
-
+* **_arn_**
+* **_family_**
+* **_revision_**
 
 
 ### _Usage_
