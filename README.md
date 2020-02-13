@@ -1,47 +1,46 @@
-# Terraform Module: terraform-module-aws-ecs-task-definition
+# _Terraform Module: terraform-module-aws-ecs-task-definition_
 
 
-## General
+## _General_
 
-This module can be used to deploy a ECS task definition.
-
-
----
-
-## Prerequisites
-
-This module needs Terraform 0.11.10 or newer.
-You can download the latest Terraform version from [here](https://www.terraform.io/downloads.html).
-
-
-This module deploys aws services details are in respective feature branches.
-
----
-
-## Features Branches
-
-Below we are able to check the resources that are being created as part of this module call:
-
-From branch : *terraform-11/master*
-
-- *ECS Task Definition (Terraform 11 supported code)*
-
-From branch : *terraform-12/master* *[Work in progress]*
-
-- *ECS Task Definition (Terraform 12 supported code - Work in progres)*
+_This module can be used to deploy a_ _**ECS Task Definition** on AWS Cloud Provider......_
 
 
 ---
 
-## Usage
+## _Prerequisites_
 
-## Using this repo
+_This module needs **Terraform 0.11.14** or newer._
+_You can download the latest Terraform version from_ [_here_](https://www.terraform.io/downloads.html).
 
-To use this module, add the following call to your code:
+
+
+---
+
+## _Features Branches_
+
+_Below we are able to check the resources that are being created as part of this module call:_
+
+_From branch :_ _**terraform-11/master**_
+
+- _**ECS Task Definition (Terraform 11 supported code)**_
+
+_From branch :_ _**terraform-12/master**_
+
+- _**ECS Task Definition (Terraform 12 supported code)**_
+
+
+---
+
+## _Usage_
+
+## _Using this repo_
+
+_To use this module, add the following call to your code:_
 
 ```tf
-module "<layer>-ecs-task-definition-<AccountID>" {
-  source = "../../modules/uki-shared-services-terraform-module-ecs-task-definition"
+module "ecs_task_definition" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=master"
 
   # Pass in relevant inputs required for this module here
   # e.g. vpc_id = "${data.terraform_remote_state.networking_shared_services.vpc_id}"
@@ -52,53 +51,30 @@ module "<layer>-ecs-task-definition-<AccountID>" {
 
 ---
 
-## Inputs
+## _Inputs_
 
-The variables required in order for the module to be successfully called from the deployment repository are the following:
+_The variables required in order for the module to be successfully called from the deployment repository are the following:_
 
-- *Details are in respective branch.*
+- _**Details are in respective branch.**_
 
 
 ---
 
 
-## Outputs
+## _Outputs_
 
-### General
-This module has the following outputs:
+### _General_
 
-
-- *Details are in respective branch.*
+_This module has the following outputs:_
 
 
-
-### Usage
-In order for the variables to be accessed at module level please use the syntax below:
+- _**Details are in respective branch.**_
 
 
-```tf
-module.<module_name>.<output_variable_name>
 
-```
+### _Usage_
 
-If an output variable needs to be exposed on root level in order to be accessed through terraform state file follow the steps below:
-
-- Include the syntax above in the layer outputs.tf terraform file.
-- Add the code snippet below to the variables/global_variables file.
-
-```tf
-data "terraform_remote_state" "<layer_name>" (i.e. "iam_roles_layer") {
-  backend = "s3"
-
-  config {
-    bucket = <bucket_name> (i.e. "uki-s3-global-terraform-state")
-    key    = <state_file_relative_path> (i.e. "env:/Global/2_IAM_Roles/terraform.tfstate")
-    region = <bucket_region> (i.e. "eu-central-1")
-  }
-}
-```
-
-- The output variable is able to be accessed through terraform state file using the syntax below:
+_In order for the variables to be accessed at module level please use the syntax below:_
 
 
 ```tf
@@ -107,18 +83,7 @@ data "terraform_remote_state" "<layer_name>" (i.e. "iam_roles_layer") {
 ---
 
 
-### Known Issues / Limitations
 
-- *None*
+## _Authors_
 
-
-### Planned changes
- 
-- *None*
-
-
----
-
-## Authors
-
-Module maintained by Module maintained by the - Nitin Das
+_Module maintained by Module maintained by the -_ **_Nitin Das_**
