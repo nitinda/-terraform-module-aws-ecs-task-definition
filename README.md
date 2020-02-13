@@ -59,7 +59,7 @@ _The variables required in order for the module to be successfully called from t
 | **_execution\_role\_arn_** | _The Amazon Resource Name_ | _string_ | **_Optional (Default - null)_** |
 | **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Optional_** |
 | **_volume_** | _A set of volume blocks_ | _any_ | **_Optional (Default - [])_** |
-| **_placement\_constraints_** | _A set of placement constraints rules_ | _any_ |  **_Optional_** |
+| **_placement\_constraints_** | _A set of placement constraints rules_ | _any_ |  **_Optional (Default - [])_** |
 | **_cpu_** | _The number of cpu units_ | _string_ | **_Required_** |
 | **_memory_** | _The amount (in MiB) of memory_ | _string_ | **_Required_** |
 | **_requires\_compatibilities_** | _A set of launch types_ | _list(string)_ | **_Required_** |
