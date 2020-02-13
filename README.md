@@ -57,7 +57,7 @@ _The variables required in order for the module to be successfully called from t
 | **_container\_definitions_** | _A list of valid container definitions_ | _string_ | **_Required_** |
 | **_task\_role\_arn_** | _The ARN of IAM role for container task_ | _string_ | **_Optional (Default - null)_** |
 | **_execution\_role\_arn_** | _The Amazon Resource Name_ | _string_ | **_Optional (Default - null)_** |
-| **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Optional_** |
+| **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Required_** |
 | **_volume_** | _A set of volume blocks_ | _any_ | **_Optional (Default - [])_** |
 | **_placement\_constraints_** | _A set of placement constraints rules_ | _any_ |  **_Optional (Default - [])_** |
 | **_cpu_** | _The number of cpu units_ | _string_ | **_Required_** |
