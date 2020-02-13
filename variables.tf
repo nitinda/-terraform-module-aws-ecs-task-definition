@@ -22,6 +22,7 @@ variable "network_mode" {
 variable "placement_constraints" {
   description = "A set of placement constraints rules that are taken into consideration during task placement."
   type        = "list"
+  default     = []
 }
 
 variable "cpu" {
@@ -35,7 +36,6 @@ variable "memory" {
 variable "requires_compatibilities" {
   description = "A set of launch types required by the task."
   type        = "list"
-  default     = []
 }
 
 variable "volume" {
