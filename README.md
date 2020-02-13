@@ -36,6 +36,44 @@ _To use this module, add the following call to your code:_
 module "ecs_task_definition" {
   source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=terraform-11/master"
 
+  providers = {
+    aws = "aws.services"
+  }
+
+  family = "nginx"
+  container_definitions = <<EOF
+[
+   {
+         "Name": "nginx",
+         "Image": "nginx",
+         "PortMappings": [
+            {
+               "ContainerPort": 80,
+               "Protocol": "tcp",
+               "HostPort": 8080
+            }
+         ],
+         "MemoryReservation": 12,
+         "Memory": 64,
+         "Essential": true
+    }
+]
+EOF
+
+  memory = 512
+  cpu    = 256
+  network_mode = "bridge"
+  task_role_arn = ""
+  execution_role_arn = ""
+  requires_compatibilities = ["EC2"]
+
+
+
+  # Tags
+  tags = {
+      Project      = "POC"
+      Environment  = "prod"
+  }
 }
 ```
 
