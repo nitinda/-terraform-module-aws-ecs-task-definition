@@ -10,7 +10,7 @@ _This module can be used to deploy a_ _**ECS Task Definition** on AWS Cloud Prov
 
 ## _Prerequisites_
 
-_This module needs **Terraform 0.11.14** or newer._
+_This module needs **Terraform 0.12.19** or newer._
 _You can download the latest Terraform version from_ [_here_](https://www.terraform.io/downloads.html).
 
 
@@ -21,13 +21,7 @@ _You can download the latest Terraform version from_ [_here_](https://www.terraf
 
 _Below we are able to check the resources that are being created as part of this module call:_
 
-_From branch :_ _**terraform-11/master**_
-
-- _**ECS Task Definition (Terraform 11 supported code)**_
-
-_From branch :_ _**terraform-12/master**_
-
-- _**ECS Task Definition (Terraform 12 supported code)**_
+- _**ECS Task Definition**_
 
 
 ---
@@ -40,10 +34,11 @@ _To use this module, add the following call to your code:_
 
 ```tf
 module "ecs_task_definition" {
-  source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=master"
+  source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=terraform-12/master"
 
-  # Pass in relevant inputs required for this module here
-  # e.g. vpc_id = "${data.terraform_remote_state.networking_shared_services.vpc_id}"
+  providers = {
+    aws = aws.services
+  }
 
 }
 ```
@@ -55,7 +50,19 @@ module "ecs_task_definition" {
 
 _The variables required in order for the module to be successfully called from the deployment repository are the following:_
 
-- _**Details are in respective branch.**_
+|**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
+|:----|:----|-----:|:---:|
+| **_tags_** | _Resource tags_ | _map_ | **_Required_** |
+| **_family_** | _A unique name_ | _string_ | **_Required_** |
+| **_container\_definitions_** | _A list of valid container definitions_ | _string_ | **_Required_** |
+| **_task\_role\_arn_** | _The ARN of IAM role for container task_ | _string_ | **_Optional_** |
+| **_execution\_role\_arn_** | _The Amazon Resource Name_ | _string_ | **_Optional_** |
+| **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Optional_** |
+| **_volume_** | _A set of volume blocks_ | _list of maps_ | **_Optional_** |
+| **_placement\_constraints_** | _A set of placement constraints rules_ | _list of maps_ |  **_Optional_** |
+| **_cpu_** | _The number of cpu units_ | _string_ | **_Required_** |
+| **_memory_** | _The amount (in MiB) of memory_ | _string_ | **_Required_** |
+| **_requires\_compatibilities_** | _A set of launch types_ | _string_ | **_Required_** |
 
 
 ---
@@ -78,7 +85,7 @@ _In order for the variables to be accessed at module level please use the syntax
 
 
 ```tf
-"${data.terraform_remote_state.<layer_name>.<output_variable_name>}"
+data.terraform_remote_state.<layer_name>.<output_variable_name>
 ```
 ---
 
