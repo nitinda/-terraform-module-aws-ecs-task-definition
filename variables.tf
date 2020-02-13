@@ -43,7 +43,7 @@ variable "requires_compatibilities" {
 variable "volume" {
   description = "A set of volume blocks that containers in your task may use."
   type        = any
-  default     = [{}]
+  default     = {}
 }
 
 ## Tags
