@@ -5,7 +5,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   execution_role_arn    = var.execution_role_arn
   network_mode          = var.network_mode
   dynamic "volume" {
-    for_each = length(keys(var.volume)) == 0 ? [] : var.volume
+    for_each = length(keys(var.volume)) == 0 ? [] : [var.volume]
     content {
       host_path = lookup(volume.value, "host_path", null)
       name      = volume.value.name
