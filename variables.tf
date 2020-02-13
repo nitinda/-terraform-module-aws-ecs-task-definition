@@ -35,11 +35,13 @@ variable "memory" {
 variable "requires_compatibilities" {
   description = "A set of launch types required by the task."
   type        = "list"
+  default     = []
 }
 
 variable "volume" {
   description = "A set of volume blocks that containers in your task may use."
   type        = "list"
+  default     = []
 }
 
 ## Tags
