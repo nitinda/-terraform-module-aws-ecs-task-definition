@@ -43,7 +43,7 @@ variable "volume" {
 }
 
 ## Tags
-variable common_tags {
+variable tags {
   description = "Resources Tags"
   type        = "map"
 }
