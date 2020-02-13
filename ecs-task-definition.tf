@@ -9,5 +9,5 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   requires_compatibilities = "${var.requires_compatibilities}"
   cpu                      = "${var.cpu}"
   memory                   = "${var.memory}"
-  tags                     = "${var.common_tags}"
+  tags                     = "${var.tags}"
 }

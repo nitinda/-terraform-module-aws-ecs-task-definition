@@ -1,46 +1,40 @@
-# Terraform Module: terraform-module-aws-ecs-task-definition
+# _Terraform Module: terraform-module-aws-ecs-task-definition_
 
 
-## General
+## _General_
 
-This module can be used to deploy a ECS task definition.
+_This module can be used to deploy a_ _**ECS Task Definition** on AWS Cloud Provider......_
 
 
 ---
 
 ## Prerequisites
 
-This module needs Terraform 0.11.10 or newer.
-You can download the latest Terraform version from [here](https://www.terraform.io/downloads.html).
+_This module needs **Terraform 0.11.14** or newer._
+_You can download the latest Terraform version from_ [_here_](https://www.terraform.io/downloads.html).
 
-
-This module deploys aws services details are in respective feature branches.
-
----
-
-## Features Branches
-
-Below we are able to check the resources that are being created as part of this module call:
-
-From branch : *terraform-11/master*
-
-- *ECS Task Definition (Terraform 11 supported code)*
 
 
 ---
 
-## Usage
+## _Features_
 
-## Using this repo
+_Below we are able to check the resources that are being created as part of this module call:_
 
-To use this module, add the following call to your code:
+- _**ECS Task Definition**_
+
+
+---
+
+## _Usage_
+
+## _Using this repo_
+
+_To use this module, add the following call to your code:_
 
 ```tf
-module "<layer>-ecs-task-definition-<AccountID>" {
-  source = "../../modules/uki-shared-services-terraform-module-ecs-task-definition"
-
-  # Pass in relevant inputs required for this module here
-  # e.g. vpc_id = "${data.terraform_remote_state.networking_shared_services.vpc_id}"
+module "ecs_task_definition" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=terraform-11/master"
 
 }
 ```
@@ -48,86 +42,52 @@ module "<layer>-ecs-task-definition-<AccountID>" {
 
 ---
 
-## Inputs
+## _Inputs_
 
-The variables required in order for the module to be successfully called from the deployment repository are the following:
+_The variables required in order for the module to be successfully called from the deployment repository are the following:_
 
-| Variable                      | Description                                   | Type            |
-|:---                           |      :----:                                   |            ---: |
-| common_tags                   | Resource tags                                 | map             |
-| family                        | A unique name                                 | string          |
-| container_definitions         | A list of valid container definitions         | string          |
-| task_role_arn                 | The ARN of IAM role for container task        | string          |
-| execution_role_arn            | The Amazon Resource Name                      | string          |
-| network_mode                  | The Docker networking mode                    | string          |
-| volume                        | A set of volume blocks                        | list of maps    |
-| placement_constraints         | A set of placement constraints rules          | list of maps    |
-| cpu                           | The number of cpu units                       | string          |
-| memory                        | The amount (in MiB) of memory                 | string          |
-| requires_compatibilities      | A set of launch types                         | string          |
+|**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
+|:----|:----|-----:|:---:|
+| **_tags_** | _Resource tags_ | _map_ | **_Required_** |
+| **_family_** | _A unique name_ | _string_ | **_Required_** |
+| **_container\_definitions_** | _A list of valid container definitions_ | _string_ | **_Required_** |
+| **_task\_role\_arn_** | _The ARN of IAM role for container task_ | _string_ | **_Optional_** |
+| **_execution\_role\_arn_** | _The Amazon Resource Name_ | _string_ | **_Optional_** |
+| **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Optional_** |
+| **_volume_** | _A set of volume blocks_ | _list of maps_ | **_Optional_** |
+| **_placement\_constraints_** | _A set of placement constraints rules_ | _list of maps_ |  **_Required_** |
+| **_cpu_** | _The number of cpu units_ | _string_ | **_Required_** |
+| **_memory_** | _The amount (in MiB) of memory_ | _string_ | **_Required_** |
+| **_requires\_compatibilities_** | _A set of launch types_ | _string_ | **_Required_** |
+
 
 
 ---
 
 
-## Outputs
+## _Outputs_
 
-### General
-This module has the following outputs:
+### _General_
 
-
-* *arn*
-* *family*
-* *revision*
+_This module has the following outputs:_
 
 
-### Usage
-In order for the variables to be accessed at module level please use the syntax below:
+* **_arn_**
+* **_family_**
+* **_revision_**
 
 
-```tf
-module.<module_name>.<output_variable_name>
+### _Usage_
 
-```
-
-If an output variable needs to be exposed on root level in order to be accessed through terraform state file follow the steps below:
-
-- Include the syntax above in the layer outputs.tf terraform file.
-- Add the code snippet below to the variables/global_variables file.
-
-```tf
-data "terraform_remote_state" "<layer_name>" (i.e. "iam_roles_layer") {
-  backend = "s3"
-
-  config {
-    bucket = <bucket_name> (i.e. "uki-s3-global-terraform-state")
-    key    = <state_file_relative_path> (i.e. "env:/Global/2_IAM_Roles/terraform.tfstate")
-    region = <bucket_region> (i.e. "eu-central-1")
-  }
-}
-```
-
-- The output variable is able to be accessed through terraform state file using the syntax below:
+_In order for the variables to be accessed at module level please use the syntax below:_
 
 
 ```tf
 "${data.terraform_remote_state.<layer_name>.<output_variable_name>}"
 ```
----
-
-
-### Known Issues / Limitations
-
-- *None*
-
-
-### Planned changes
- 
-- *None*
-
 
 ---
 
-## Authors
+## _Authors_
 
-Module maintained by Module maintained by the - Nitin Das
+_Module maintained by Module maintained by the -_ **_Nitin Das_**
