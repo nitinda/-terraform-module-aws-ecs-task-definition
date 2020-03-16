@@ -60,13 +60,6 @@ variable "requires_compatibilities" {
   default     = []
 }
 
-variable "proxy_configuration" {
-  description = "The proxy configuration details for the App Mesh proxy"
-  default     = {}
-  type        = any
-}
-
-## Tags
 variable "tags" {
   description = "Resources Tags"
   type        = map(string)
