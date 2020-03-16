@@ -96,17 +96,19 @@ _The variables required in order for the module to be successfully called from t
 
 |**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
 |:----|:----|-----:|:---:|
+| **_family_** | _A unique name for your task definition_ | _string_ | **_Required_** |
+| **_container\_definitions_** | _A list of valid container definitions <br/> provided as a single valid JSON document_ | _string_ | **_Required_** |
+| **_task\_role\_arn_** | _The ARN of IAM role that allows your Amazon ECS <br/> container task to make calls to other AWS services_ | _string_ | **_Optional (Default - null)_** |
+| **_execution\_role\_arn_** | _The ARN of the task execution role that the Amazon ECS <br/> container agent and the Docker daemon can assume_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_network\_mode_** | _The Docker networking mode to use <br/> for the containers in the task_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_ipc\_mode_** | _The IPC resource namespace to be <br/> used for the containers in the task_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_pid\_mode_** | _The process namespace to use for <br/> the containers in the task_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_volume_** | _A set of volume blocks that <br/> containers in your task may use_ | _any_ | **_Optional <br/> (Default - {})_** |
+| **_placement\_constraints_** | _A set of placement constraints rules that <br/> are taken into consideration during task placement_ | _any_ |  **_Optional (Default - [])_** |
+| **_cpu_** | _The number of cpu units used by the task_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_memory_** | _The amount (in MiB) of memory used by the task_ | _string_ | **_Optional <br/> (Default - null)_** |
+| **_requires\_compatibilities_** | _A set of launch types_ | _list(string)_ | **_Optional <br/> (Default - {})_** |
 | **_tags_** | _Resource tags_ | _map(string)_ | **_Required_** |
-| **_family_** | _A unique name_ | _string_ | **_Required_** |
-| **_container\_definitions_** | _A list of valid container definitions_ | _string_ | **_Required_** |
-| **_task\_role\_arn_** | _The ARN of IAM role for container task_ | _string_ | **_Optional (Default - null)_** |
-| **_execution\_role\_arn_** | _The Amazon Resource Name_ | _string_ | **_Optional (Default - null)_** |
-| **_network\_mode_** | _The Docker networking mode_ | _string_ | **_Required_** |
-| **_volume_** | _A set of volume blocks_ | _any_ | **_Optional (Default - [])_** |
-| **_placement\_constraints_** | _A set of placement constraints rules_ | _any_ |  **_Optional (Default - [])_** |
-| **_cpu_** | _The number of cpu units_ | _string_ | **_Required_** |
-| **_memory_** | _The amount (in MiB) of memory_ | _string_ | **_Required_** |
-| **_requires\_compatibilities_** | _A set of launch types_ | _list(string)_ | **_Required_** |
 
 
 ---
