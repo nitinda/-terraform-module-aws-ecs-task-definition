@@ -4,6 +4,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   task_role_arn         = var.task_role_arn
   execution_role_arn    = var.execution_role_arn
   network_mode          = var.network_mode
+
   dynamic "volume" {
     for_each = length(keys(var.volume)) == 0 ? [] : [var.volume]
     content {
@@ -30,7 +31,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       }
     }
   }
-  
+
   dynamic "placement_constraints" {
     for_each = var.placement_constraints
     content {
@@ -42,5 +43,6 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
   requires_compatibilities = var.requires_compatibilities
   cpu                      = var.cpu
   memory                   = var.memory
-  tags                     = var.tags
+
+  tags = var.tags
 }
