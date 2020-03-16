@@ -30,6 +30,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       }
     }
   }
+  
   dynamic "placement_constraints" {
     for_each = var.placement_constraints
     content {
@@ -37,9 +38,9 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
       type       = placement_constraints.value.type
     }
   }
+
   requires_compatibilities = var.requires_compatibilities
   cpu                      = var.cpu
   memory                   = var.memory
   tags                     = var.tags
 }
-
