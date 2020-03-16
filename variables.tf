@@ -22,23 +22,14 @@ variable "network_mode" {
   default     = null
 }
 
-variable "placement_constraints" {
-  description = "A set of placement constraints rules that are taken into consideration during task placement."
-  type        = any
-  default     = []
+variable "ipc_mode" {
+  description = "The IPC resource namespace to be used for the containers in the task"
+  default     = null
 }
 
-variable "cpu" {
-  description = "The number of cpu units used by the task."
-}
-
-variable "memory" {
-  description = "The amount (in MiB) of memory used by the task. If the requires_compatibilities is FARGATE this field is required."
-}
-
-variable "requires_compatibilities" {
-  description = "A set of launch types required by the task."
-  type        = list(string)
+variable "pid_mode" {
+  description = "The process namespace to use for the containers in the task"
+  default     = null
 }
 
 variable "volume" {
@@ -47,9 +38,36 @@ variable "volume" {
   default     = {}
 }
 
+variable "placement_constraints" {
+  description = "A set of placement constraints rules that are taken into consideration during task placement."
+  type        = any
+  default     = []
+}
+
+variable "cpu" {
+  description = "The number of cpu units used by the task."
+  default     = null
+}
+
+variable "memory" {
+  description = "The amount (in MiB) of memory used by the task. If the requires_compatibilities is FARGATE this field is required"
+  default     = null
+}
+
+variable "requires_compatibilities" {
+  description = "A set of launch types required by the task."
+  type        = list(string)
+  default     = []
+}
+
+variable "proxy_configuration" {
+  description = "The proxy configuration details for the App Mesh proxy"
+  default     = {}
+  type        = any
+}
+
 ## Tags
 variable "tags" {
   description = "Resources Tags"
   type        = map(string)
 }
-
