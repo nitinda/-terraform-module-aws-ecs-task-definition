@@ -88,6 +88,42 @@ EOF
 ```
 
 
+```tf
+module "ecs_task_definition" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-ecs-task-definition.git?ref=terraform-12/master"
+
+  providers = {
+    aws = aws.services
+  }
+
+  family = "nginx"
+  container_definitions = <<EOF
+[
+   {
+         "Name": "nginx",
+         "Image": "nginx",
+         "PortMappings": [
+            {
+               "ContainerPort": 80,
+               "Protocol": "tcp",
+               "HostPort": 8080
+            }
+         ],
+         "MemoryReservation": 12,
+         "Memory": 64,
+         "Essential": true
+   }
+]
+EOF
+
+  # Tags
+  tags = {
+      Project      = "POC"
+      Environment  = "prod"
+  }
+}
+```
+
 ---
 
 ## _Inputs_
